@@ -60,8 +60,7 @@ Biompt implements a layered synthesis framework with seven distinct stages:
 
 ---
 
-## Installation (from scratch)
-
+## Installation
 To run Biompt locally:
 
 ```bash
@@ -77,3 +76,33 @@ npm install
 
 # 4. Start the development server
 npm start
+```
+## Project Structure
+```
+biompt/
+├── public/
+├── src/
+│   ├── App.js             # Main logic for form handling and prompt generation
+│   ├── App.css            # UI styling
+│   ├── index.js           # Entry point
+│   ├── prompt_templates/  # Domain-specific few-shot examples (optional)
+│   └── meta_templates/    # Output rendering templates for LLMs
+├── package.json
+└── README.md
+```
+
+## Usage Instructions
+Once running, the user interface guides the creation of prompts through 12 customizable input fields, including:
+- Objective, topic, audience, tone
+- Format and length
+- Style examples and task constraints
+- Fallback priorities, refinement instructions, and writing guidance
+
+After submission, Biompt:
+- Generates a structured prompt aligned with LLM requirements
+- Classifies the output as ✅ Final, 📝 Refine, or ❓ Clarify
+- Displays the full prompt in an editable output pane
+
+
+## Authors
+Dr Rezwanuzzaman Laskar and Asifuzzaman Laskar
