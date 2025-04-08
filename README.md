@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Biompt
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+**Biompt** is a modular prompt engineering engine tailored for genomics, AI, and bioinformatics. Designed for researchers and developers, it systematically transforms ambiguous or unstructured input into high-quality prompts optimized for Large Language Models (LLMs) such as GPT, Claude, Gemini, and domain-specific agents. The tool supports scientific writing, clinical genomics, pipeline automation, and metadata extraction—wherever precision, context alignment, and interpretability are essential.
 
-In the project directory, you can run:
+Prompt engineering plays a central role in ensuring the accuracy and utility of LLM outputs, particularly in knowledge-dense and terminology-sensitive domains such as biomedical research. Biompt addresses the gap by incorporating ontological reasoning, few-shot learning strategies, and domain alignment mechanisms into the prompt generation process.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Background and Significance
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+While general-purpose LLMs offer strong language generation capabilities, their effectiveness is highly dependent on the quality of the prompt. In fields like genomics and bioinformatics, effective prompts must satisfy strict requirements: ontology conformance, tool-specific terminology, clarity in task specification, and adherence to scientific tone. Biompt introduces a formal pipeline for converting draft instructions into optimized prompts by integrating biomedical vocabularies (e.g., MeSH, HGNC, NCBI Taxonomy) and structured decomposition layers.
 
-### `npm test`
+This approach is novel in its:
+- Adaptability across scientific and clinical domains
+- Integration of biomedical ontologies and prompt templates
+- Modular, interpretable transformation pipeline from raw intent to finalized prompt
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Biompt includes:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- A web-based React application for interactive prompt generation (`App.js`)
+- Configurable multi-stage prompt engineering pipeline
+- Controlled vocabulary alignment using MeSH, HGNC, NCBI Taxonomy, EDAM
+- Support for zero-shot, few-shot, CoT (Chain of Thought), and multi-turn prompts
+- Integration-ready prompt output (for APIs, LLM agents, IDE plugins)
+- User-defined tone, structure, audience, and constraints
+- Feedback-based refinement and iteration readiness tagging
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Methodology: Prompt Engineering Pipeline
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Biompt implements a layered synthesis framework with seven distinct stages:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Instruction Decomposition Layer (IDL)**  
+   Classifies task type, tone, domain, and desired format from draft instructions using rule-based and transformer classifiers.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Prompt Strategy Selector (PSS)**  
+   Maps decomposed tasks to appropriate strategies: zero-shot, few-shot, CoT, instructional, or conversational templates.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Context Infusion Module (CIM)**  
+   Retrieves domain-aware examples and aligns terminology with ontologies. Auto-injects few-shot patterns if ambiguity exists.
 
-## Learn More
+4. **Prompt Optimization Engine (POE)**  
+   Refines prompts for clarity, structure, tone fit, and task specificity. Enforces syntactic and semantic rules.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. **Prompt Quality Evaluator (PQE)**  
+   Evaluates prompts against criteria like specificity, task clarity, audience alignment, modularity, and context fitness.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+6. **Meta-Prompt Renderer (MPR)**  
+   Converts abstract intermediate representation (IR) into executable, LLM-optimized natural language prompts.
 
-### Code Splitting
+7. **Fallback & Clarification Module (FCM)**  
+   Addresses underspecified input by defaulting to academic tone, inserting clarifying sub-prompts, and tagging outputs for refinement.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Installation (from scratch)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To run Biompt locally:
 
-### Making a Progressive Web App
+```bash
+# 1. Clone the repository
+git clone https://github.com/rezwan-lab/biompt.git
+cd biompt
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# 2. Install Node.js (if not already installed)
+# Visit https://nodejs.org/en/download and install v18.x or above
 
-### Advanced Configuration
+# 3. Install dependencies
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# 4. Start the development server
+npm start
